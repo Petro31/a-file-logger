@@ -48,11 +48,14 @@ def _create_log_file(
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Setup logging to a file."""
 
-    if "SUPERVISOR" in os.environ or os.environ["DEBUGPY_RUNNING"]:
+    debugpy_running = "DEBUGPY_RUNNING"
+    if "SUPERVISOR" in os.environ or (
+        debugpy_running in os.environ and os.environ[debugpy_running]
+    ):
         logger = logging.getLogger()
         log_path = hass.config.path(
             ERROR_LOG_FILENAME
-            if not os.environ["DEBUGPY_RUNNING"]
+            if "SUPERVISOR" in os.environ
             else f"file-logger-{ERROR_LOG_FILENAME}"
         )
 
