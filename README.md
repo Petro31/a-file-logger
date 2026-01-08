@@ -1,18 +1,11 @@
 # a-file-logger
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Ready-blue.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
-<br><a href="https://www.buymeacoffee.com/Petro31" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-black.png" width="150px" height="35px" alt="Buy Me A Coffee" style="height: 35px !important;width: 150px !important;" ></a>
+# THIS IS DEPRECATED.
 
-Brings home-assistant.log back in the config folder for supervised installations: HAOS and Home Assistant Supervised.
+2026.1 now has a built in log feature.  [To enable, via SSH or command line](https://www.home-assistant.io/common-tasks/os/#enable-duplicate-log-file):
 
-<h1><a class="title-link" name="installation" href="#installation"></a>Installation</h1>
-
-* Install using HACS, or copy the contents of `custom_components/a_file_logger/` to `<config>/custom_components/a_file_logger/`
-* Restart Home Assistant
-
-<h1><a class="title-link" name="configuration" href="#configuration"></a>Configuration</h1>
-
-```yaml
-# Add to configuration.yaml
-a_file_logger:
+```
+ha core options --duplicate-log-file=true
+ha core rebuild
+ha core restart
 ```
